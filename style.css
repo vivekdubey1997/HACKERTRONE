@@ -1,0 +1,397 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+/* CSS VARIABLES */
+
+
+:root{
+    --primary: #B2B1B9;
+    --dark:#333;
+    --light:#fff;
+    --bg:#2C3333;
+    --shadow:0 1px 5px rgba(104,104,104,0.8);
+}
+
+body{
+    background-color:#CD104D;
+    padding: 40px 30px;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+   grid-template-rows: 60px 150px 60px 1fr 60px;
+   grid-template-columns: 15% 1fr ;
+   background-color: var(--primary);
+}
+
+/* navbar */
+
+
+
+.container .header{
+    width: 100%;
+    grid-column: 1/span2;
+    background-color: var(--light);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.container .header .logo{
+    width: 10%;
+    cursor: pointer;
+    /* border: 2px solid red; */
+}
+.container .header .logo i{
+    color: #CD104D;
+}
+
+
+.container .header .searchbar{
+    width: 60%;
+    text-align: center;
+    /* border: 2px solid red; */
+}
+.container .header .searchbar input{
+    width: 500px;
+    height: 35px;
+    border-radius: 20px;
+    padding-left: 10px;
+    border: none;
+    background-color: var(--primary);
+    transition: all .3s linear;
+}
+.container .header .searchbar input:hover{
+    transform: scale(1.1);
+}
+
+
+.container .header .info{
+    display: flex;
+    width: 20%;
+    /* border: 2px solid red; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+.container .header .info i{
+    color: #CD104D;
+}
+.container .header .info .notification{
+    position: relative;
+    cursor: pointer;
+}
+.container .header .info .notification .noti-count{
+    position: absolute;
+    padding: 0px 3px;
+    top: -8px;
+    right: -7px;
+    color: white;
+    background-color: #CD104D;
+    border-radius: 50%;
+}
+.container .header .info .chat{
+    position: relative;
+    cursor: pointer;
+}
+.container .header .info .chat .chat-count{
+    position: absolute;
+    padding: 0px 2px;
+    top: -8px;
+    right: -14px;
+    color: white;
+    background-color: #CD104D;
+    border-radius: 50%;
+}
+.container .header .info .profile{
+    /* border: 2px solid black; */
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.container .header .profile img{
+    width: 45px;
+    border-radius: 50%;
+}
+.container .header .profile p{
+    color: grey;
+    font-weight: bold;
+}
+
+/* aside */
+
+
+
+.container .aside{
+    grid-row: 2/-2;
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+}
+
+.container .aside ul{
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    display: block;
+}
+.container .aside ul li{
+    color: var(--light);
+    padding: 8px ;
+    font-size: 18px;
+    margin: 15px 0px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+.container .aside ul li::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #CD104D;
+    transform: translateX(-100%);
+    transition: all .3s linear;
+}
+
+.container .aside ul li:hover::before{
+   transform: translateX(0);
+    z-index: -1;
+}
+
+/* hotel images  */
+
+
+.container .hotel_images{
+    grid-column: 2/-1;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.container .hotel_images .image-1{
+    background: url("images/hotel-1.jpg") center/cover no-repeat;
+}
+.container .hotel_images .image-2{
+    background: url("images/hotel-2.jpg") center/cover no-repeat;
+}
+.container .hotel_images .image-3{
+    background: url("images/hotel-3.jpg") center/cover no-repeat;
+}
+
+
+/* about hotel  */
+
+
+
+.container .about_hotel{
+    grid-column: 2/-1;
+    background-color: rgb(220, 145, 53);
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+   
+}
+.about_hotel .name{
+    color: grey;
+    display: grid;
+    align-items: center;
+    padding-left: 20px;
+    background-color: var(--light);
+    
+}
+.container .about_hotel .location{
+    display: flex;
+    align-items: center;
+    background-color: var(--light);
+    /* border: 2px solid black; */
+    justify-content: space-between;
+}
+.container .about_hotel .location a{
+    color: #CD104D; 
+    border-bottom: 2px solid #CD104D;
+    /* border: 2px solid red; */
+}
+.container .about_hotel .location .rating{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    color: var(--light);
+    background-color: #CD104D;
+    padding: 1px 10px;
+    /* border: 2px solid red; */
+}
+.container .about_hotel .location .rating p{
+    font-size: 10px;
+   
+}
+
+/* main content  */
+
+
+.container .content_section{
+    grid-area: 4/2/-2/-1;
+    display: grid;
+    padding: 15px;
+    color: gray;
+    /* border: 2px solid red; */
+    grid-template-columns: 1fr 120px 110px;
+    grid-template-rows:1fr 1fr 30px;
+    grid-gap: 15px;
+    background-color: var(--primary);
+}
+.container .content_section .pros{
+    background-color: var(--light);
+    grid-row:1/-1 ;
+    padding: 20px;
+}
+.container .content_section .pros .text{
+    padding: 10px;
+    border-bottom: 1px solid silver;
+}
+.container .content_section .pros .list{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    padding: 10px;
+    border-bottom:  1px solid silver;
+    /* border: 2px solid red; */
+}
+.container .content_section .pros .reviews{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+.container .content_section .pros .reviews .mask{
+    display: flex;
+}
+.container .content_section .pros .reviews .mask img{
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+}
+
+.container .content_section .feedback{
+    display: grid;
+    justify-items: center;
+    background-color: var(--light);
+    grid-template-rows: 1fr 60px;
+}
+.container .content_section .feedback .top{
+    font-size: 12px;
+    padding: 10px;
+    
+}
+.container .content_section .feedback .bottom{
+    display: grid;
+    padding: 2px;
+    align-items: center;
+    grid-gap: 1px;
+    grid-template-columns: repeat(3,1fr);
+}
+.container .content_section .feedback .bottom .img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .content_section .feedback .bottom img{
+    width: 30px;
+    border-radius: 50%;
+}
+.container .content_section .feedback .bottom .intro{
+    font-size: 10px;
+    text-align: center;
+}
+
+.container .content_section .feedback .bottom .rate{
+    text-align: center;
+    color: #CD104D;
+}
+.container .content_section .feedback-1{
+    grid-area: 1/2/2/3;
+}
+.container .content_section .feedback-2{
+    grid-area: 2/2/3/3;
+}
+.container .content_section .showall{
+    background-color: var(--primary);
+    text-align: center;
+    grid-area: 3/2/4/3;
+}
+.container .content_section .showall a{
+    color: #CD104D;
+    border-bottom: 2px solid #CD104D;
+}
+.container .content_section .offers{
+    grid-row: 1/-2;
+    width: 100%;
+  display: flex;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+    color: gray;
+    background-color: var(--light);
+}
+.container .content_section .offers .btn{
+    background-color: #CD104D;
+    padding: 13px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* footer  */
+
+
+.container .footer{
+    grid-column: 1/-1;
+    background-color: var(--light);
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* rasponsive */
+
+@media (max-width:1000px) {
+    .container .header .logo{
+        text-align: center;
+    }
+    .container .header .searchbar input{
+       width: 300px;
+    }
+    .container .header .info{
+        width: 30%;
+    }
+}
+
+@media (max-width:600px){
+    .container .header .searchbar input{
+        width: 150px;
+     }
+     .container .aside ul li{
+        font-size: 12px;
+     }
+}
